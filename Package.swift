@@ -5,22 +5,40 @@ import PackageDescription
 
 let package = Package(
     name: "TestCoreWhite",
+    platforms: [
+        .iOS(.v13)
+    ],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
+        // Producto principal (puede quedar vacío o con utilidades comunes)
         .library(
             name: "TestCoreWhite",
             targets: ["TestCoreWhite"]
         ),
+
+        // Producto que expone el módulo donde está tu clase Test
+        .library(
+            name: "TestWhite",
+            targets: ["TestWhite"]
+        )
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
+        // Target base
         .target(
-            name: "TestCoreWhite"
+            name: "TestCoreWhite",
+            path: "Sources/TestCoreWhite"
         ),
+
+        // Target donde vive Test()
+        .target(
+            name: "TestWhite",
+            path: "Sources/TestWhite"
+        ),
+
+        // Tests (opcional)
         .testTarget(
             name: "TestCoreWhiteTests",
-            dependencies: ["TestCoreWhite"]
-        ),
+            dependencies: ["TestCoreWhite", "TestWhite"],
+            path: "Tests/TestCoreWhiteTests"
+        )
     ]
 )
