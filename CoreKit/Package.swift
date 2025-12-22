@@ -1,5 +1,9 @@
-// swift-tools-version: 6.2
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+//
+//  Package.swift
+//  CoreKit
+//
+//  Created by Jose Alejandro Ramirez Vergara on 22/12/25.
+//
 
 import PackageDescription
 
