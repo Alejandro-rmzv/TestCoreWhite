@@ -1,20 +1,15 @@
-//
-//  testFile.swift
-//  TestCoreWhite
-//
-//  Created by Jose Alejandro Ramirez Vergara on 22/12/25.
-//
 import Foundation
+import Combine
 import Shared
 
 public final class NetworkViewModel: ObservableObject {
-    
-    @Published var resultText: String = ""
-    @Published var toastMessage: String = ""
+
+    @Published public var resultText: String = ""
+    @Published public var toastMessage: String = ""
 
     private let api: KtorNetworkClient
 
-    init() {
+    public init() {
         let config = NetworkConfig(
             baseUrl: "https://www.themealdb.com/api/json/v1/1",
             defaultHeaders: ["Accept": "application/json"],
@@ -39,18 +34,19 @@ public final class NetworkViewModel: ObservableObject {
             headers: [:]
         ) { [weak self] json, error in
             DispatchQueue.main.async {
+                guard let self else { return }
 
                 if let error = error {
-                    print("❌ Error: \(error.localizedDescription)")
+                    self.toastMessage = "Error: \(error.localizedDescription)"
                     return
                 }
 
-                guard let json = json else {
-                    print("❌ Empty response")
+                guard let json else {
+                    self.toastMessage = "Empty response"
                     return
                 }
 
-                print("✅ Service success %@", json)
+                self.resultText = json
             }
         }
     }
