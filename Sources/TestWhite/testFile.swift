@@ -7,5 +7,5 @@
 
 public final class Test {
     public init() {}
-    public func testPrint() { print("Hello World") }
+    public func testPrint(url: String) { print(url) }
 }
