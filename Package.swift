@@ -22,6 +22,10 @@ let package = Package(
         )
     ],
     targets: [
+        .binaryTarget(
+                    name: "MyBinary",
+                    path: "Frameworks/Shared.xcframework"
+        ),
         // Target base
         .target(
             name: "TestCoreWhite",
@@ -31,6 +35,7 @@ let package = Package(
         // Target donde vive Test()
         .target(
             name: "TestWhite",
+            dependencies: ["MyBinary"],
             path: "Sources/TestWhite"
         ),
 
