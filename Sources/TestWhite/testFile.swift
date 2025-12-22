@@ -38,14 +38,16 @@ public final class NetworkViewModel: ObservableObject {
 
                 if let error = error {
                     self.toastMessage = "Error: \(error.localizedDescription)"
+                    print("error")
                     return
                 }
 
                 guard let json else {
+                    print("empty")
                     self.toastMessage = "Empty response"
                     return
                 }
-
+                print("json %@", json)
                 self.resultText = json
             }
         }
