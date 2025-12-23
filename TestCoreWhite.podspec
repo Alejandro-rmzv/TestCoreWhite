@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
   s.homepage         = 'https://github.com/tu-org/TestCoreWhite'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Jose Alejandro Ramirez Vergara' => 'alejandro.ramirez@citi.com.mx' }
-  s.source           = { :git => 'https://github.com/tu-org/TestCoreWhite.git', :tag => s.version }
+  s.source           = { :git => 'https://github.com/Alejandro-rmzv/TestCoreWhite.git', :tag => s.version }
 
   s.ios.deployment_target = '13.0'
   s.swift_version = '5.9'
