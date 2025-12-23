@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'TestCoreWhite'
-  s.version          = '1.0.0'
+  s.version          = '1.0.8'
   s.summary          = 'Core + White module for iOS'
   s.description      = 'TestCoreWhite: Core module + TestWhite module that wraps Shared.xcframework.'
   s.homepage         = 'https://github.com/tu-org/TestCoreWhite'
