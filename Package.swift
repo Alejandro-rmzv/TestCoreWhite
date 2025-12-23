@@ -22,7 +22,10 @@ let package = Package(
         )
     ],
     targets: [
-        
+        .binaryTarget(
+            name: "Shared",
+            path: "Frameworks/Shared.xcframework"
+        ),
         // Target base
         .target(
             name: "TestCoreWhite",
